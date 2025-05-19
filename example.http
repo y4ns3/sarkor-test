@@ -1,0 +1,25 @@
+POST localhost:8080/products
+Content-Type: Application:json
+
+{
+    "name":"iphone 15",
+    "description":"some text about iphone 15",
+    "price":1500000,
+    "quantity":4
+}
+###
+GET localhost:8080/products
+###
+GET localhost:8080/products/1
+###
+PUT localhost:8080/products/2
+Content-Type: Application:json
+
+{
+    "name":"iphone 16",
+    "description":"updated text",
+    "price":15200000,
+    "quantity":24
+}
+###
+DELETE localhost:8080/products/1
