@@ -1,6 +1,9 @@
 package main
 
 import (
+	"log"
+	"net"
+
 	"github.com/joho/godotenv"
 	"github.com/y4ns3/sarkor-test/config"
 	"github.com/y4ns3/sarkor-test/db"
@@ -8,8 +11,6 @@ import (
 	"github.com/y4ns3/sarkor-test/internal/rest"
 	"github.com/y4ns3/sarkor-test/internal/rest/handler"
 	"github.com/y4ns3/sarkor-test/internal/usecase/product"
-	"log"
-	"net"
 )
 
 func main() {
@@ -34,7 +35,7 @@ func execute() error {
 
 	productRepository := repository.NewProductRepository(db)
 	productService := product.NewService(productRepository)
-	productHandler, err := handler.NewHandler(productService)
+	productHandler := handler.NewHandler(productService)
 	if err != nil {
 		return err
 	}

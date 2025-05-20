@@ -6,17 +6,16 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/y4ns3/sarkor-test/internal/usecase/product"
 )
 
 type ProductHandler struct {
-	service *product.Service
+	service ProductService
 }
 
-func NewHandler(s *product.Service) (*ProductHandler, error) {
+func NewHandler(s ProductService) *ProductHandler {
 	return &ProductHandler{
 		service: s,
-	}, nil
+	}
 }
 
 func (p *ProductHandler) CreateProduct(c *gin.Context) {
